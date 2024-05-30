@@ -8,6 +8,7 @@ import com.sky.vo.OrderSubmitVO;
 import com.sky.vo.OrderVO;
 
 public interface OrderService {
+
     /**
      * 用户下单
      * @param ordersSubmitDTO
@@ -99,4 +100,11 @@ public interface OrderService {
      * @param id
      */
     void complete(Long id);
+
+
+    /**
+     * 客户催单
+     * @param id
+     */
+    void reminder(Long id);
 }
