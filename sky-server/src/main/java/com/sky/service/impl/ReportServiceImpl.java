@@ -46,8 +46,14 @@ public class ReportServiceImpl implements ReportService {
 
         List<Double> turnoverList = new ArrayList<>();
         for (LocalDate date : dateList) {
+            LocalDateTime beginTime = LocalDateTime.of(date, LocalTime.MIN);
+            LocalDateTime endTime = LocalDateTime.of(date, LocalTime.MAX);
 
-            Double turnover = orderMapper.sumByDateAndStatus(date, Orders.COMPLETED);
+            Map map = new HashMap();
+            map.put("begin", beginTime);
+            map.put("end", endTime);
+            map.put("status", Orders.COMPLETED);
+            Double turnover = orderMapper.sumByMap(map);
 
             turnover = turnover == null ? 0.0 : turnover;
             turnoverList.add(turnover);

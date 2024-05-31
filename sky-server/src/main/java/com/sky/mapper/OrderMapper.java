@@ -81,12 +81,11 @@ public interface OrderMapper {
 
 
     /**
-     * 根据日期和订单状态统计营业额
-     * @param date
-     * @param status
+     * 根据动态条件统计营业额数据
+     * @param map
      * @return
      */
-    Double sumByDateAndStatus(LocalDate date, Integer status);
+    Double sumByMap(Map map);
 
     /**
      * 根据动态条件查询订单数据
